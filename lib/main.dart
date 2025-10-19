@@ -120,7 +120,6 @@ class _ConverterPageState extends State<ConverterPage> {
   }
 
   void _addInput(String value) {
-    // Allow one decimal, one minus at start
     if (value == '.' && inputValue.contains('.')) return;
     if (value == '-' && (inputValue.isNotEmpty || inputValue.contains('-')))
       return;
@@ -185,7 +184,6 @@ class _ConverterPageState extends State<ConverterPage> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Row 1
           Row(
             children: [
               buildKey('7', onTap: () => _addInput('7')),
@@ -193,7 +191,7 @@ class _ConverterPageState extends State<ConverterPage> {
               buildKey('9', onTap: () => _addInput('9')),
             ],
           ),
-          // Row 2
+
           Row(
             children: [
               buildKey('4', onTap: () => _addInput('4')),
@@ -201,7 +199,7 @@ class _ConverterPageState extends State<ConverterPage> {
               buildKey('6', onTap: () => _addInput('6')),
             ],
           ),
-          // Row 3
+
           Row(
             children: [
               buildKey('1', onTap: () => _addInput('1')),
@@ -209,7 +207,7 @@ class _ConverterPageState extends State<ConverterPage> {
               buildKey('3', onTap: () => _addInput('3')),
             ],
           ),
-          // Row 4
+
           Row(
             children: [
               buildKey('.', onTap: () => _addInput('.')),
@@ -217,7 +215,7 @@ class _ConverterPageState extends State<ConverterPage> {
               buildKey('-', onTap: () => _addInput('-')),
             ],
           ),
-          // Row 5 (backspace full width)
+
           Row(
             children: [buildKey('⌫', onTap: _backspace, color: Colors.white)],
           ),
@@ -327,8 +325,6 @@ class _ConverterPageState extends State<ConverterPage> {
     );
   }
 }
-
-// Conversion logic with error checks:
 
 String _convertLength(String input, String from, String to) {
   final v = double.tryParse(input);
